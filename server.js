@@ -5,6 +5,7 @@ import subjectRoutes from './routes/subjectRoutes.js';
 import pyqRoutes from './routes/pyqRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
 import uploadRequestRoutes from './routes/uploadRequestRoutes.js';
+import authRoutes from './routes/authRoutes.js';
 import connectDB from './config/db.js';
 import axios from 'axios';
 
@@ -71,6 +72,7 @@ app.get('/api/download/:id', async (req, res) => {
 connectDB();
 
 // Routes
+app.use('/api/auth', authRoutes);
 app.use('/api/subjects', subjectRoutes);
 app.use('/api/pyqs', pyqRoutes);
 app.use('/api/admin', adminRoutes);
